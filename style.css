@@ -15,6 +15,10 @@ body {
     max-width: 960px;
     margin: 20px auto;
     padding: 20px;
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
 }
 
 .header {
@@ -25,7 +29,7 @@ body {
 .header img {
     width: 100px;
     height: 100px;
-    border-radius: 50%
+    border-radius: 50%;
 }
 
 .section {
@@ -40,4 +44,10 @@ body {
 .section a {
     color: white;
     text-decoration: none;
+}
+
+
+.section a {
+    display: inline-block;
+    vertical-align: middle;
 }
