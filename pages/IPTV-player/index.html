@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Medya Oynatıcı</title>
+  <style>
+    #oynatıcı {
+      width: 640px;
+      height: 360px;
+      background-color: #000;
+    }
+
+    #medya {
+      width: 100%;
+      height: 100%;
+    }
+
+    #liste {
+      width: 300px;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <div id="oynatıcı">
+    <video id="medya" controls></video>
+  </div>
+  <div id="liste">
+    <ul>
+    </ul>
+  </div>
+
+  <input type="file" id="dosyaYukle" accept=".m3u">
+  <input type="text" id="urlGiris" placeholder="m3u URL'sini girin">
+  <button id="urlEkle">Ekle</button>
+
+  <script>
+    const medya = document.getElementById('medya');
+    const liste = document.getElementById('liste');
+    const dosyaYukle = document.getElementById('dosyaYukle');
+    const urlGiris = document.getElementById('urlGiris');
+    const urlEkle = document.getElementById('urlEkle');
+
+    function m3uOku(kaynak) {
+      let icerik;
+
+      if (typeof kaynak === 'string' && kaynak.startsWith('http')) {
+        fetch(kaynak)
+          .then(response => response.text())
+          .then(text => {
+            icerik = text;
+            m3uIsle(icerik);
+          });
+      } else if (typeof kaynak === 'string') {
+        icerik = kaynak;
+        m3uIsle(icerik);
+      } else if (kaynak instanceof File) {
+        const okuyucu = new FileReader();
+        okuyucu.onload = (e) => {
+          icerik = e.target.result;
+          m3uIsle(icerik);
+        };
+        okuyucu.readAsText(kaynak);
+      }
+    }
+
+    function m3uIsle(icerik) {
+      const satirlar = icerik.split('\n');
+      satirlar.forEach(satir => {
+        if (satir.startsWith('http')) {
+          const li = document.createElement('li');
+          li.textContent = satir;
+          li.addEventListener('click', () => {
+            medya.src = satir;
+            medya.play();
+          });
+          liste.querySelector('ul').appendChild(li);
+        }
+      });
+    }
+
+    dosyaYukle.addEventListener('change', (event) => {
+      const dosya = event.target.files[0];
+      m3uOku(dosya);
+    });
+
+    urlEkle.addEventListener('click', () => {
+      const url = urlGiris.value;
+      m3uOku(url);
+    });
+
+    // Örnek bir m3u dosyasını yükle (isteğe bağlı)
+    // m3uOku('liste.m3u');
+  </script>
+</body>
+</html>
