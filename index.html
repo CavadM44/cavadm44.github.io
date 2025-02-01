@@ -1,24 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Giriş Sayfası</title>
-<style>
-  .kapak-foto {
-    width: 300px; /* Fotoğrafın genişliği (isteğe göre ayarlanabilir) */
-    height: 300px; /* Fotoğrafın yüksekliği (isteğe göre ayarlanabilir) */
-    border-radius: 50%; /* Fotoğrafı yuvarlak yapar */
-    object-fit: cover; /* Fotoğrafın boyutlara sığmasını sağlar */
-    display: block; /* Fotoğrafı ortalar */
-    margin: 0 auto; /* Fotoğrafı ortalar */
-  }
-
-  .baslik {
-    text-align: center; /* Yazıyı ortalar */
-    margin-top: 20px; /* Fotoğraf ile yazı arasındaki boşluk */
-    font-size: 24px; /* Yazı boyutu */
-  }
-</style>
-</head>
+  <title>Giriş Sayfası</title>
+  <link rel="stylesheet" href="style.css"> </head>
 <body>
 
   <img class="kapak-foto" src="https://avatars.githubusercontent.com/u/185502778?v=4" alt="Kapak Fotoğrafı">
@@ -35,22 +19,18 @@
 
   <script>
       document.getElementById('loginForm').addEventListener('submit', function(event) {
-          event.preventDefault(); // Sayfanın yenilenmesini engelle
+          event.preventDefault();
 
           const username = document.getElementById('username').value;
           const password = document.getElementById('password').value;
 
-          // Kullanıcı adı ve şifre kontrolü
           if (username === 'admin' && password === 'admin1234') {
-              // Başarılı giriş, farklı bir siteye yönlendir
-              window.location.href = 'https://cavadm44.github.io/pages/ana-sayfa.html'; // Örnek site adresi
+              window.location.href = 'https://www.ornek-site.com';
           } else {
-              // Hatalı giriş, uyarı göster
               alert('Kullanıcı adı veya şifre hatalı!');
           }
       });
   </script>
 
 </body>
-    </html>
-    
+</html>
