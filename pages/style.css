@@ -1,57 +1,116 @@
+@font-face {
+  font-family: "inter";
+  src: url("./assets/fonts/Inter-VariableFont_slnt\,wght.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: hsl(75, 94%, 57%);
+  --secondary-light: hsl(0, 0%, 20%);
+  --secondary: hsl(0, 0%, 12%);
+  --secondary-dark: hsl(0, 0%, 8%);
+  --white: hsl(0, 0%, 100%);
+
+  font-family: "inter", sans-serif;
+  font-size: 14px;
+}
+
+html,
 body {
-    background-color: #1a202c; 
-    color: white;
-    font-family: 'Open Sans';
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--secondary-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.container {
-    width: 80%;
-    max-width: 960px;
-    margin: 20px auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+main {
+  width: 100%;
+  max-width: 375px;
+  margin: auto;
+  padding: 3rem;
+  background-color: var(--secondary);
+  border-radius: 0.85rem;
+  text-align: center;
 }
 
-.header {
-    text-align: center;
-    margin-bottom: 20px;
+img {
+  width: 100%;
+  max-width: 100px;
+  aspect-ratio: 1 / 1;
+  border-radius: 100%;
+  margin: auto;
+  display: block;
+  object-fit: cover;
 }
 
-.header img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+h1,
+h2,
+p,
+li {
+  text-align: center;
 }
 
-.section {
-    background-color: #6366f1; 
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    width: 100%;
-    text-align: center;
+h1,
+p,
+li {
+  color: var(--white);
 }
 
-.section a {
-    color: white;
-    text-decoration: none;
-    display: inline-block;
-    vertical-align: middle; 
-    padding: 10px 20px; 
-    border-radius: 5px; 
-    transition: background-color 0.3s ease; 
+h1 {
+  margin-top: 2rem;
+  font-size: 1.9rem;
+  font-weight: 700;
 }
 
-.section a:hover {
-    background-color: #7e82f7;
+h2 {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
+p {
+  margin: 1rem 0 1.5rem;
+}
+
+menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 0.8rem 0;
+  background-color: var(--secondary-light);
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* Geçiş efektini ekledik */
+}
+
+li:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+li:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary);
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  display: block; /* Linkleri li'nin tüm alanını kaplayacak şekilde ayarlar */
+  width: 100%; /* Linkleri li'nin tüm alanını kaplayacak şekilde ayarlar */
+  height: 100%; /* Linkleri li'nin tüm alanını kaplayacak şekilde ayarlar */
+  padding: 0.8rem 0; /* li ile aynı padding'i uygular */
+    }
+    
