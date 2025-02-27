@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kullanıcı Kayıt Formu</title>
+</head>
+<body>
+    <h2>Kullanıcı Kayıt Formu</h2>
+    <form id="kayitFormu">
+        <label for="adSoyad">Ad Soyad:</label><br>
+        <input type="text" id="adSoyad" name="adSoyad" required><br><br>
+
+        <label for="eposta">E-posta:</label><br>
+        <input type="email" id="eposta" name="eposta" required><br><br>
+
+        <label for="yas">Yaş:</label><br>
+        <input type="number" id="yas" name="yas" required><br><br>
+
+        <label for="bolge">Bölge:</label><br>
+        <select id="bolge" name="bolge" required>
+            <option value="">Seçiniz</option>
+            <option value="marmara">Marmara</option>
+            <option value="ege">Ege</option>
+            <option value="akdeniz">Akdeniz</option>
+            <option value="karadeniz">Karadeniz</option>
+            <option value="icanadolu">İç Anadolu</option>
+            <option value="doguanadolu">Doğu Anadolu</option>
+            <option value="guneydoguanadolu">Güneydoğu Anadolu</option>
+        </select><br><br>
+
+        <input type="submit" value="Kaydet">
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
